@@ -1,0 +1,17 @@
+alias: Notify - Heating - Usage exceeded 3 hours
+description: Send a notification that today's heating has exceeded 3 hours
+mode: single
+triggers:
+  - entity_id:
+      - sensor.thermostat_heating_today
+    above: 3
+    trigger: numeric_state
+conditions: []
+actions:
+  - data:
+      message: >-
+        Heating usage has exceeded 3 hours, which might be indicative of a race
+        condition.
+      title: Heating usage has exceeded 3 hours
+    # make sure you add your mobile phone or device
+    action: notify.YOUR_MOBILE_PHONE_OR_DEVICE

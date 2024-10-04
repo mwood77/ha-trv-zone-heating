@@ -1,0 +1,15 @@
+alias: Notify - Heating - Usage is above 6m³
+description: Send a notification that natural gas usage is high
+mode: single
+triggers:
+  - entity_id:
+      - sensor.daily_gas_consumption
+    above: 6
+    trigger: numeric_state
+conditions: []
+actions:
+  - data:
+      message: Usage has exceeded 6m³, which might be indicative of a race condition.
+      title: Natural Gas Usage above 6m³
+    # make sure you add your mobile phone or device
+    action: notify.YOUR_MOBILE_PHONE_OR_DEVICE

@@ -1,0 +1,26 @@
+alias: Heating - MODE - ON - Automatic zone control
+description: Enables zone heating control
+mode: single
+triggers:
+  - entity_id:
+      - input_boolean.heating_automation
+    from: "off"
+    to: "on"
+    trigger: state
+actions:
+  - target:
+      entity_id:
+        - climate.YOUR_CLIMATE_NAME
+        - climate.YOUR_CLIMATE_NAME_2
+        - ...
+    data:
+      temperature: 17
+      hvac_mode: heat
+    action: climate.set_temperature
+  - target:
+      entity_id:
+        - climate.attic
+    data:
+      temperature: 15
+      hvac_mode: heat
+    action: climate.set_temperature

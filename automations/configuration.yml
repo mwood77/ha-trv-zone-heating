@@ -1,0 +1,44 @@
+# Add the following sensor templates to your configuration.yaml file, under the 'sensor:' key:
+
+# Cumulative Gas Consumption (rounded)
+- platform: template
+  sensors:
+    gas_consumed_rounded:
+      friendly_name: "Annual Gas Consumed"
+      unit_of_measurement: "m3"
+      value_template: "{{ states('sensor.gas_consumed') | round(0) }}"
+
+# HVAC Activiy Counter
+- platform: template
+  sensors:
+    hvac_activity:
+      friendly_name: "HVAC Activity"
+      value_template: '{{ state_attr("climate.living_room", "hvac_action") }}'
+
+# Thermostat Week (HVAC Activity)
+- platform: history_stats
+  name: Thermostat Heating This Week
+  entity_id: sensor.hvac_activity
+  state: "heating"
+  type: time
+  start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+  end: "{{ now() }}"
+
+# Thermostat Day (HVAC Activity)
+- platform: history_stats
+  name: Thermostat Heating Today
+  entity_id: sensor.hvac_activity
+  state: "heating"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  end: "{{ now() }}"
+
+# Thermostat Yesterday (HVAC Activity)
+- platform: history_stats
+  name: Thermostat Heating Yesterday
+  entity_id: sensor.hvac_activity
+  state: "heating"
+  type: time
+  end: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  duration:
+    hours: 24

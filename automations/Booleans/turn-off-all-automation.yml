@@ -1,0 +1,19 @@
+alias: Heating - MODE - OFF - Automatic zone control
+description: Reverts heating system to conventional central thermostat control
+mode: single
+triggers:
+  - entity_id:
+      - input_boolean.heating_automation
+    from: "on"
+    to: "off"
+    trigger: state
+actions:
+  - target:
+      entity_id:
+        - climate.YOUR_CLIMATE_NAME
+        - climate.YOUR_CLIMATE_NAME_2
+        - ...
+    data:
+      temperature: 23
+      hvac_mode: heat
+    action: climate.set_temperature

@@ -1,0 +1,43 @@
+alias: Heating - Schedule - Lower all climates overnight
+description: ""
+mode: single
+triggers:
+  - at: "23:00:00"
+    trigger: time
+conditions:
+  - condition: state
+    entity_id: input_boolean.heating_automation
+    state: "on"
+actions:
+  # This sets all your TRVs to a lower temperature
+  - metadata: {}
+    data:
+      hvac_mode: heat
+      temperature: 15
+    target:
+      entity_id:
+        - climate.YOUR_CLIMATE_NAME
+        - climate.YOUR_CLIMATE_NAME_2
+        - climate.YOUR_CLIMATE_NAME_3
+        - ...
+    action: climate.set_temperature
+  # These TRVs should be cooler than the one above; this could be a garage, or attic, or basement
+  - metadata: {}
+    data:
+      temperature: 10
+      hvac_mode: heat
+    target:
+      entity_id: 
+        - climate.YOUR_CLIMATE_NAME_WHO_SHOULD_BE_COLDER_THAN_THE_OTHERS
+        - climate.YOUR_CLIMATE_NAME_WHO_SHOULD_BE_COLDER_THAN_THE_OTHERS_2
+        - ...
+    action: climate.set_temperature
+  # This sets your _CENTRAL THERMOSTAT_ to a lower temperature - this is not a TRV!
+  - metadata: {}
+    data:
+      hvac_mode: heat
+      temperature: 17.5
+    target:
+      entity_id: 
+       - climate.YOUR_CENTRAL_THERMOSTAT
+    action: climate.set_temperature

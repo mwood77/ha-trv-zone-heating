@@ -1,0 +1,37 @@
+alias: >-
+  Heating - TURN_ON - Raise central temperature if any climates (TRVs) are calling
+  request heat.
+mode: single
+triggers:
+  # Add all your thermostats to this template. 
+  # This will check if any of them are calling for heat.
+  - value_template: >
+      {% set therms = [
+        states.climate.YOUR_TRV_CLIMATE_NAME,
+        states.climate.YOUR_TRV_CLIMATE_NAME_2,
+        ] %}
+      {% set climates = namespace(under=[]) %}   {% for therm in therms %}   {%
+      if therm.attributes.current_temperature < therm.attributes.temperature
+      %}   {% set climates.under = climates.under + [ therm.entity_id ] %}  {%
+      endif %} {% endfor %}  {{ climates.under | length > 0 }}
+    trigger: template
+conditions:
+  - condition: state
+    entity_id: input_boolean.heating_automation
+    state: "on"
+  - condition: state
+    entity_id: climate.living_room
+    state: idle
+    attribute: hvac_action
+actions:
+  - target:
+      entity_id: climate.living_room
+    data:
+      # Set this higher than the highest temperature you want to ensure it triggers and stays on until all TRVs are satisfied.
+      temperature: 25   
+    action: climate.set_temperature
+  - metadata: {}
+    data: {}
+    target:
+      entity_id: counter.heating_on
+    action: counter.increment

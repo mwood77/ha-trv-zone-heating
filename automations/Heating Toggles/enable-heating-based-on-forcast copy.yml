@@ -1,0 +1,21 @@
+alias: >-
+  Heating - TOGGLE BOOLEAN - Enable heating automation when temperature is
+  forecast bellow 17C
+description: ""
+mode: single
+triggers:
+  - entity_id:
+      - weather.forecast_home
+    attribute: temperature
+    below: 17
+    trigger: numeric_state
+conditions:
+  - condition: state
+    entity_id: input_boolean.heating_automation
+    state: "off"
+actions:
+  - target:
+      entity_id:
+        - input_boolean.heating_automation
+    data: {}
+    action: input_boolean.turn_onToggle

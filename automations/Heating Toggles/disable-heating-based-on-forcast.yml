@@ -1,0 +1,21 @@
+alias: >-
+  Heating - TOGGLE BOOLEAN - Disable heating automation when temperature is
+  forecast above 17C
+description: ""
+mode: single
+triggers:
+  - entity_id:
+      - weather.forecast_home
+    attribute: temperature
+    above: 17
+    trigger: numeric_state
+conditions:
+  - condition: state
+    entity_id: input_boolean.heating_automation
+    state: "on"
+actions:
+  - metadata: {}
+    data: {}
+    target:
+      entity_id: input_boolean.heating_automation
+    action: input_boolean.turn_off

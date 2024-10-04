@@ -1,0 +1,38 @@
+alias: >-
+  Heating - TURN_OFF - Lower central temperature if all climates (TRVs) are equal
+  or above target.
+mode: single
+triggers:
+  # Add all your thermostats to this template; it must match the list in the 'turn-on-heating.yml' template.
+  - value_template: >
+      {% set therms = [
+        states.climate.YOUR_TRV_CLIMATE_NAME,
+        states.climate.YOUR_TRV_CLIMATE_NAME_2,
+        ] %}
+      {% set climates = namespace(at_target=[]) %} {% for therm in therms %} {%
+      if therm.attributes.current_temperature >= therm.attributes.temperature %}
+      {% set climates.at_target = climates.at_target + [ therm.entity_id ] %} {%
+      endif %} {% endfor %}  {{ climates.at_target | length == therms | length
+      }}
+    trigger: template
+conditions:
+  - condition: state
+    state: "on"
+    entity_id: input_boolean.heating_automation
+  - condition: state
+    entity_id: climate.living_room
+    state: heating
+    attribute: hvac_action
+actions:
+  - target:
+      entity_id: climate.living_room
+    data:
+      # Set this to a decent ambient temperature; leaving it at around 19C is a good idea.
+      temperature: 19
+      hvac_mode: heat
+    action: climate.set_temperature
+  - metadata: {}
+    data: {}
+    target:
+      entity_id: counter.heating_off
+    action: counter.increment

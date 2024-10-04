@@ -1,0 +1,18 @@
+alias: Heating - Schedule - Evening YOUR_ROOM warm-up
+description: ""
+mode: single
+triggers:
+  - at: "21:00:00"
+    trigger: time
+conditions:
+  - condition: state
+    entity_id: input_boolean.heating_automation
+    state: "on"
+actions:
+  - metadata: {}
+    data:
+      hvac_mode: heat
+      temperature: 18.5
+    target:
+      entity_id: climate.YOUR_SPECIFIC_ROOM_TO_HEAT
+    action: climate.set_temperature
