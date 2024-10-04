@@ -20,12 +20,12 @@ conditions:
     entity_id: input_boolean.heating_automation
     state: "on"
   - condition: state
-    entity_id: climate.living_room
+    entity_id: climate.YOUR_CENTRAL_THERMOSTAT
     state: idle
     attribute: hvac_action
 actions:
   - target:
-      entity_id: climate.living_room
+      entity_id: climate.YOUR_CENTRAL_THERMOSTAT
     data:
       # Set this higher than the highest temperature you want to ensure it triggers and stays on until all TRVs are satisfied.
       temperature: 25   

@@ -13,7 +13,8 @@
   sensors:
     hvac_activity:
       friendly_name: "HVAC Activity"
-      value_template: '{{ state_attr("climate.living_room", "hvac_action") }}'
+      # replace YOUR_CENTRAL_THERMOSTAT with the entity_id of your central thermostat
+      value_template: '{{ state_attr("climate.YOUR_CENTRAL_THERMOSTAT", "hvac_action") }}'
 
 # Thermostat Week (HVAC Activity)
 - platform: history_stats

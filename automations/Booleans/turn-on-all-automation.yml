@@ -17,9 +17,10 @@ actions:
       temperature: 17
       hvac_mode: heat
     action: climate.set_temperature
+  # Set this TRV to a different termperature
   - target:
       entity_id:
-        - climate.attic
+        - climate.YOUR_CLIMATE_NAME_WHO_SHOULD_BE_COLDER_THAN_THE_OTHERS
     data:
       temperature: 15
       hvac_mode: heat
