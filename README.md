@@ -128,7 +128,7 @@ Add all devices to Home Assistant via Zigbee2MQTT. Make sure you use a consisten
             - Guest Bedroom = 4
             - Etc
     - Unique Identifier
-        > 💡 make sure each device has its unique identifier attached to itself!
+        > 💡 Pro-tip - physically label each device with its unique identifier!
         - Each sensor should have a unique identifier. My rule of thumb is to prefix all devices of _a type_ with a common letter, followed by a number. That way you can move sensors around the house and rename them easily. For example:
             - All TRVs are labeled as `TRVX` where `X` is a number
                 - `TRV1` is in the Bathroom
