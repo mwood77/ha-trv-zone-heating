@@ -1,7 +1,7 @@
 alias: >-
   Heating - TOGGLE BOOLEAN - Disable heating automation when temperature is
   forecast above 17C
-description: ""
+description: "Uses the forecasted temperature to disable the heating automation"
 mode: single
 triggers:
   - entity_id:

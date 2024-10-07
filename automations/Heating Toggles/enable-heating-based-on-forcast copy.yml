@@ -1,7 +1,7 @@
 alias: >-
   Heating - TOGGLE BOOLEAN - Enable heating automation when temperature is
   forecast bellow 17C
-description: ""
+description: "Uses the forecasted temperature to enable the heating automation"
 mode: single
 triggers:
   - entity_id:
