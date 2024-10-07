@@ -24,9 +24,8 @@ This page contains links to purchase the products required to make this suite of
 
 <!-- Canada -->
 <details>
-  <summary>🇨🇦 Canada</summary> 
+  <summary>🇨🇦 Canada</summary>
 
-  > [!NOTE]
   > Stock in Canada appears to be a bit all over the place. If stock proves to be unobtanium from Amazon, consider looking on Aliexpress.
 
 ### Amazon Canada
@@ -57,7 +56,6 @@ This page contains links to purchase the products required to make this suite of
 <details>
   <summary>🇺🇸 USA</summary> 
 
-  > [!NOTE]
   > Stock in the USA appears to be a bit all over the place. If stock proves to be unobtanium from Amazon, consider looking on Aliexpress.
 
 ### Amazon USA

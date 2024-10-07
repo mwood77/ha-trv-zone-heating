@@ -29,7 +29,7 @@ A TRV (Thermostatic Radiator Valve) is a device which is connected to hot water 
 </div>
 
 ### Design Considerations and Safety Precautions
-> [!CRITICAL]
+> [!WARNING]
 > It's very important that every aspect of this system can be manually controlled, both _digitally and physically!_
 >
 > You must consider fall-back options, should your Home Assistant installation or internet connectivity fail. Provided you followed the steps outlined here, your system _should be failsafe_.
