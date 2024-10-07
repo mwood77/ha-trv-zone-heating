@@ -115,7 +115,7 @@ Now that you've planned out which rooms and which radiators will have TRVs, you 
 #### Step 4
 Add all devices to Home Assistant via Zigbee2MQTT. Make sure you use a consistent and clear naming scheme. I use the following:
 
-- `[ Climate Area ] - [ Sensor / Device Type ] - [ Numerical Room Identifier ] - [ Unique Identifier ]`
+- `[ Climate Area ] - [ Sensor / Device Type ] - [ Numerical Room Identifier{.}Numerical Device Identifier ] - [ Unique Identifier ]`
     - Climate area 
         - the room that the device is installed in
     - Sensor / Device Type 
@@ -131,14 +131,19 @@ Add all devices to Home Assistant via Zigbee2MQTT. Make sure you use a consisten
         > 💡 make sure each device has its unique identifier attached to itself!
         - Each sensor should have a unique identifier. My rule of thumb is to prefix all devices of _a type_ with a common letter, followed by a number. That way you can move sensors around the house and rename them easily. For example:
             - All TRVs are labeled as `TRVX` where `X` is a number
+                - `TRV1` is in the Bathroom
+                - `TRV2` is in the Kitchen
             - All temperature sensors are prefixed with the letter `K`
                 - `K1` is in the Main Bedroom
-                - `K1` is in the Bathroom
-                - `K1` is in the Kitchen
+                - `K2` is in the Bathroom
+                - `K3` is in the Kitchen
 
 
 This translates to:
-- `Bedroom 2 - Temperature - 2.1 - K1`
+- `Kitchen - TRV - 2.1 - TRV3`
+- `Kitchen - Temperature - 2.2 - K3`
+- `Bathroom - TRV - 4.1 - TRV2`
+- `Bathroom - Temperature - 4.2 - K2`
 
 Using a predictable naming scheme will allow you to filter or search for devices by type, location, or unique identifier.
 
