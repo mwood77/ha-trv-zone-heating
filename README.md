@@ -49,6 +49,7 @@ A personal anecdote. I've used this setup for over a year and experienced both a
 1. A Zigbee coordinator
 1. An established and configured [Zigbee2MQTT installation within Home Assistant](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt?tab=readme-ov-file#installation)
 
+## Installation
 ### Planning our Installation
 Let's assume we're installing this system in a fictional house:
 <div align="center">
@@ -83,7 +84,7 @@ Now that you've planned out which rooms and which radiators will have TRVs, you 
   <img src="./documentation/images/vector_house_with_TRVs_&_temps.svg" alt="base house without valves or automation" width="800">
   <br>
   <p>
-    Our house now with TRVs and temperature sensors
+    Our house with TRVs and temperature sensors
   </p>
   <table>
     <tr>
