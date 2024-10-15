@@ -20,7 +20,7 @@ A TRV (Thermostatic Radiator Valve) is a device which is connected to hot water 
 ## How This Works
 Heating is controlled through a feedback system, which is managed by Home Assistant.
 
-Home Assistant monitors the current temperature of a given climate (room) and adjusts the TRV's state (open/closed) when heating is required or not required.
+Home Assistant monitors the current temperature of a given climate (room) and adjusts the TRV's state (open/closed), and the central thermostat setpoint when heating is required or no longer required.
 
 The feedback loop looks like this:
 
