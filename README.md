@@ -26,40 +26,40 @@ The feedback loop looks like this:
 
 ```mermaid
 flowchart TD
-    A@{ shape: stadium, label: "Central Thermostat"} <-->|Manipulate Setpoint| B((Home Assistant))
+    A([Central Thermostat]) <-->|Manipulate Setpoint| B((Home Assistant));
 
-    B --> C(Room 1)
-    B --> D(Room 2)
-    B --> E(Room 3)
+    B --> C(Room 1);
+    B --> D(Room 2);
+    B --> E(Room 3);
 
-    F{Is room temperature above setpoint?}
-    G@{ shape: stadium, label: "Continue monitoring temperature" }
-    H@{ shape: rounded, label: "YES" }
-    I@{ shape: rounded, label: "NO" }
-    J@{ shape: stadium, label: "Open room's TRV" }
-    K@{ shape: lean-r, label: "Request setpoint change" }
-    L{Are We Heating?}
+    F{Is room temperature above setpoint?};
+    G([Continue monitoring temperature]);
+    H[YES];
+    I[NO];
+    J([Open room's TRV]);
+    K[/Request setpoint change/];
+    L{Are We Heating?};
     
     %% Room 1 is at temperature
-    C --> F
+    C --> F;
     
     %% Room 2 is at temperature
-    D --> F
+    D --> F;
     
     %% Room 3 asks for heat
-    E --> F
+    E --> F;
     
     %% Do Nothing
-    F --> H
-    H --> L
-    L --> M[YES] --> N@{ shape: stadium, label: "Close room's TRV" } .-> K
-    L --> O[NO] --> G
+    F --> H;
+    H --> L;
+    L --> M[YES] --> N([Close room's TRV]) .-> K;
+    L --> O[NO] --> G;
     
     %% Call for heat
-    F --> I
-    I .-> J
-    J .-> K
-    K .-> B
+    F --> I;
+    I .-> J;
+    J .-> K;
+    K .-> B;
 ```
 
 > @todo - add more detail for climate setup
