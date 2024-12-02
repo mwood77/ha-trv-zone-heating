@@ -218,6 +218,8 @@ You've now got a fully zone-controlled system, but now let's go for the wow-fact
 - [Preheat certain climates early in the morning](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/morning-pre-heat.yml) (getting out of a warm bed into a cold room will never be a problem again!)
 - [Lower house termperature overnight - save some $$$](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/lower-trvs-overnight.yml)
 - [Heat a specific climate at a specific time](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/heat-a-specific-room-at-a-specific-time.yml)
+- [Enable heating automation if temperature is forecast bellow a certain temperature](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Heating%20Toggles/enable-heating-based-on-forecast.yml)
+- [Dsiable heating automation if termpature is forecast above a certain temperature](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Heating%20Toggles/disable-heating-based-on-forecast.yml)
 - [For the Data Scientists - Log daily usage data and state changes](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/home_assistant_core/configuration.yml)
 
 Here are some nice push-notification automations:
