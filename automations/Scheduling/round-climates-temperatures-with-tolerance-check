@@ -1,0 +1,25 @@
+alias: Heating - CRON - Round Climate Temperatures with Tolerance Check
+description: >-
+  Checks all climate's current_temperature and sets set_temperature within a
+  rounded 0.5C based on it
+triggers:
+  - minutes: /5
+    trigger: time_pattern
+actions:
+  - repeat:
+      for_each: "{{ states.climate | map(attribute='entity_id') | list }}"
+      sequence:
+        - variables:
+            current_temp: "{{ state_attr(repeat.item, 'current_temperature') | float }}"
+            target_temp: "{{ state_attr(repeat.item, 'temperature') | float }}"
+            rounded_temp: "{{ (target_temp * 2) | round(0) / 2 }}"
+        - condition: template
+          value_template: |
+            {{ current_temp is not none and target_temp is not none and 
+               (target_temp - 0.3) <= current_temp <= (target_temp + 0.3) and
+               target_temp != rounded_temp }}
+        - data:
+            entity_id: "{{ repeat.item }}"
+            temperature: "{{ rounded_temp }}"
+          action: climate.set_temperature
+mode: single
