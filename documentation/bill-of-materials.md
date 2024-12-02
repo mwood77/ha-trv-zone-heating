@@ -47,7 +47,7 @@ This page contains links to purchase the products required to make this suite of
 | :-: | :-----------------: | :-----------------------------------------------: | :-------------------------------------------------------------------: |:-----:|
 | 🔲  | 1                   | [Sonoff Zigbee Coordinator](https://amzn.to/3zIw4n2) |  Purchase this only if you do not have an existing Zigbee network  | €26.00 per unit |
 | 🔲  | 1 per radiator      | [Sonoff Zigbee TRV](https://amzn.to/3TUH2wA)      |  Purchase as many as you need, but keep in mind that you need a few non-automated radiators on the system for safety          | €37.00 per unit |
-| 🔲  | 1 per room with a TRV | [Sonoff Zigbee Temperature & Humidity Sensor](https://amzn.to/4gRA6Kj)  | Every room with a TRV must have one dedicated temperature/humidity sensor  | €13.00 per unit |
+| 🔲  | 1 per room with a TRV | [Aqara Zigbee Temperature & Humidity Sensor](https://amzn.to/4fTVJZP)  | Every room with a TRV must have one dedicated temperature/humidity sensor  | €13.00 per unit |
 | 🔲  | 1                   | [Google Learning Thermostat](https://amzn.to/4eQoUfu)  | Double check your installation requirements prior to purchase!  | €220.00 per unit |
 
 </details>
