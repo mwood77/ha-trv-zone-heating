@@ -62,8 +62,6 @@ flowchart TD
     K .-> B;
 ```
 
-> @todo - add more detail for climate setup
-
 ## Getting Started
 ### Purchasing Equipment
 <div align="center">
