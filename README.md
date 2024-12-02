@@ -205,7 +205,7 @@ Once you've installed and configured both "Better Thermostat" and "Weather," it'
 
 You can now implement any of the automations I've created in this repository, but at a minimum you'll need these 4 automations:
 - [Input Boolean - Turn off all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Booleans/turn-off-all-automation.yml)
-- [Input BooleanTurn on all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Booleans/turn-on-all-automation.yml)
+- [Input Boolean - Turn on all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Booleans/turn-on-all-automation.yml)
 - [Master Switch - turn off all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Modify%20Central%20Thermostat/turn-off-heating.yml)
 - [Master Switch - turn on all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Modify%20Central%20Thermostat/turn-on-heating.yml)
 
@@ -219,3 +219,7 @@ You've now got a fully zone-controlled system, but now let's go for the wow-fact
 - [Lower house termperature overnight - save some $$$](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/lower-trvs-overnight.yml)
 - [Heat a specific climate at a specific time](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/heat-a-specific-room-at-a-specific-time.yml)
 - [For the Data Scientists - Log daily usage data and state changes](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/home_assistant_core/configuration.yml)
+
+Here are some nice push-notification automations:
+- [Notify user about usage based on cummulative heating time](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Notifications/warn-heating-has-run-more-than-3-hours.yml)
+- [Notify user about usage based on cummulative gas consumed](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Notifications/warn-heating-usage-above-6m3.yml)
