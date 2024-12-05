@@ -221,5 +221,5 @@ You've now got a fully zone-controlled system, but now let's go for the wow-fact
 - [For the Data Scientists - Log daily usage data and state changes](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/home_assistant_core/configuration.yml)
 
 Here are some nice push-notification automations:
-- [Notify user about usage based on cummulative heating time](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Notifications/warn-heating-has-run-more-than-3-hours.yml)
-- [Notify user about usage based on cummulative gas consumed](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Notifications/warn-heating-usage-above-6m3.yml)
+- [Notify user about usage based on cumulative heating time](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Notifications/warn-heating-has-run-more-than-3-hours.yml)
+- [Notify user about usage based on cumulative gas consumed](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Notifications/warn-heating-usage-above-6m3.yml)
