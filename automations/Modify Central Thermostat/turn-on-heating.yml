@@ -1,7 +1,8 @@
 alias: >-
   Heating - TURN_ON - Raise central temperature if any climates (TRVs) are calling
   request heat.
-mode: single
+mode: queued
+max: 10
 triggers:
   # Add all your thermostats to this template. 
   # This will check if any of them are calling for heat.
