@@ -42,7 +42,10 @@ actions:
             action: system_log.write
           - target:
               entity_id: >-
-                automation.heating_boiler_nest_turn_on_boiler_raise_nest_temp_if_any_climates_are_calling_for_heat
+                # This entity needs to be what you've named your "turn-on-heating.yml" automation.
+                # The one based off:
+                #   - https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Modify%20Central%20Thermostat/turn-on-heating.yml
+                automation.YOUR_"turn-on-heating.yml"_AUTOMATION
             data:
               skip_condition: true
             action: automation.trigger
