@@ -1,0 +1,66 @@
+alias: Heating - RETRY - Attempt to retry main climate TURN_ON automation
+description: >-
+  This automation will attempt to retry setting the main thermostat on the
+  off-chance that the initial automation fails to set to the 'heating'
+  temperature. This is ideal for remote-connected thermostats.
+triggers:
+  - minutes: /2
+    trigger: time_pattern
+conditions:
+  - condition: state
+    entity_id: input_boolean.heating_automation
+    state: "on"
+  - condition: template
+    # Add all your thermostats to this template. 
+    # This will check if any of them are calling for heat.
+    value_template: >
+      {% set therms = [
+        states.climate.YOUR_TRV_CLIMATE_NAME,
+        states.climate.YOUR_TRV_CLIMATE_NAME_2,
+        ] %}
+      {% set climates = namespace(under=[]) %}   {% for therm in therms %}   {%
+      if therm.attributes.current_temperature < therm.attributes.temperature
+      %}   {% set climates.under = climates.under + [ therm.entity_id ] %}  {%
+      endif %} {% endfor %}  {{ climates.under | length > 0 }}
+actions:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: |
+              {{ states('input_number.set_heating_retry_counter') | int < 3 }}
+        sequence:
+          - target:
+              entity_id: input_number.set_heating_retry_counter
+            action: input_number.increment
+            data: {}
+          - data:
+              level: warning
+              message: >
+                "Retry {{ states('input_number.set_heating_retry_counter') | int
+                }}: Nest thermostat remains at an idle temperature while heating
+                is needed."
+            action: system_log.write
+          - target:
+              entity_id: >-
+                automation.heating_boiler_nest_turn_on_boiler_raise_nest_temp_if_any_climates_are_calling_for_heat
+            data:
+              skip_condition: true
+            action: automation.trigger
+      - conditions:
+          - condition: template
+            value_template: |
+              {{ states('input_number.set_heating_retry_counter') | int >= 3 }}
+        sequence:
+          - target:
+              entity_id: input_number.set_heating_retry_counter
+            data:
+              value: 0
+            action: input_number.set_value
+          - data:
+              message: >-
+                "Heating retry failed: Nest thermostat remains idle after 3
+                attempts. Please check the system."
+              title: Heating Automation Fault
+            # make sure you add your mobile phone or device
+            action: notify.YOUR_MOBILE_PHONE_OR_DEVICE
+mode: single

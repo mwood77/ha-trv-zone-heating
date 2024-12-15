@@ -26,11 +26,20 @@ The feedback loop looks like this:
 
 ```mermaid
 flowchart TD
-    A([Central Thermostat]) <-->|Manipulate Setpoint| B((Home Assistant));
+    Z((Home Assistant))
+    W[/Mobile Device/]
 
-    B --> C(Room 1);
-    B --> D(Room 2);
-    B --> E(Room 3);
+    A((Manipulate Central Thermostat))
+    B(Google Cloud Service Pub/Sub)
+
+    Z --> | 1 - Publish setpoint change | B
+    Z .-> | 2 - Retry on failure x3 | B
+    B --> A
+    Z .-> | 3 - Notify after 3 failures to retry | W
+
+    Z --> C(Room 1);
+    Z --> D(Room 2);
+    Z --> E(Room 3);
 
     F{Is room temperature above setpoint?};
     G([Continue monitoring temperature]);
@@ -59,7 +68,7 @@ flowchart TD
     F --> I;
     I .-> J;
     J .-> K;
-    K .-> B;
+    K .-> Z;
 ```
 
 ## Getting Started
