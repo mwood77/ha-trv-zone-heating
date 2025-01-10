@@ -207,28 +207,29 @@ The hard work is done and now it's time to start creating climates in Home Assis
 
 Once you've installed and configured both "Better Thermostat" and "Weather," it's now time to setup each climate. I won't dive into how to setup each climate, as that's documented quite extensively on Better Thermostat's website, [here](https://better-thermostat.org/configuration). However once you've completed that, you should now have a handful of rooms, or areas, which are designated as climates.
 
+
 #### Step 7
-[Let the automations begin 🤖](https://github.com/mwood77/ha-trv-zone-heating/tree/genesis/automations)
+[Let the automations begin 🤖](https://github.com/mwood77/ha-trv-zone-heating/tree/main/automations)
 
 You can now implement any of the automations I've created in this repository, but at a minimum you'll need these 4 automations:
-- [Input Boolean - Turn off all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Booleans/turn-off-all-automation.yml)
-- [Input Boolean - Turn on all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Booleans/turn-on-all-automation.yml)
-- [Master Switch - turn off all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Modify%20Central%20Thermostat/turn-off-heating.yml)
-- [Master Switch - turn on all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Modify%20Central%20Thermostat/turn-on-heating.yml)
+- [Input Boolean - Turn off all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Booleans/turn-off-all-automation.yml)
+- [Input Boolean - Turn on all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Booleans/turn-on-all-automation.yml)
+- [Master Switch - turn off all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Modify%20Central%20Thermostat/turn-off-heating.yml)
+- [Master Switch - turn on all heating automation](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Modify%20Central%20Thermostat/turn-on-heating.yml)
 
 Congrats, you've now got a fully zone-controlled TRV heating system. Wicked, right?
 
 #### Step 8
 You've now got a fully zone-controlled system, but now let's go for the wow-factor. Here's a collection of automations which take the entire system up a notch:
 
-- [Round climate to the nearest half degree](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/round-climates-temperatures-with-tolerance-check)
-- [Preheat certain climates early in the morning](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/morning-pre-heat.yml) (getting out of a warm bed into a cold room will never be a problem again!)
-- [Lower house termperature overnight - save some $$$](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/lower-trvs-overnight.yml)
-- [Heat a specific climate at a specific time](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Scheduling/heat-a-specific-room-at-a-specific-time.yml)
-- [Enable heating automation if temperature is forecast bellow a certain temperature](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Heating%20Toggles/enable-heating-based-on-forecast.yml)
-- [Dsiable heating automation if termpature is forecast above a certain temperature](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Heating%20Toggles/disable-heating-based-on-forecast.yml)
-- [For the Data Scientists - Log daily usage data and state changes](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/home_assistant_core/configuration.yml)
+- [Round climates with tolerance check](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Scheduling/round-climates-temperatures-with-tolerance-check.yml)
+- [Preheat certain climates early in the morning](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Scheduling/morning-pre-heat.yml) (getting out of a warm bed into a cold room will never be a problem again!)
+- [Lower house termperature overnight - save some $$$](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Scheduling/lower-trvs-overnight.yml)
+- [Heat a specific climate at a specific time](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Scheduling/heat-a-specific-room-at-a-specific-time.yml)
+- [Enable heating automation if temperature is forecast bellow a certain temperature](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Heating%20Toggles/enable-heating-based-on-forecast.yml)
+- [Dsiable heating automation if termpature is forecast above a certain temperature](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Heating%20Toggles/disable-heating-based-on-forecast.yml)
+- [For the Data Scientists - Log daily usage data and state changes](https://github.com/mwood77/ha-trv-zone-heating/blob/main/home_assistant_core/configuration.yml)
 
 Here are some nice push-notification automations:
-- [Notify user about usage based on cumulative heating time](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Notifications/warn-heating-has-run-more-than-3-hours.yml)
-- [Notify user about usage based on cumulative gas consumed](https://github.com/mwood77/ha-trv-zone-heating/blob/genesis/automations/Notifications/warn-heating-usage-above-6m3.yml)
+- [Notify user about usage based on cumulative heating time](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Notifications/warn-heating-has-run-more-than-3-hours.yml)
+- [Notify user about usage based on cumulative gas consumed](https://github.com/mwood77/ha-trv-zone-heating/blob/main/automations/Notifications/warn-heating-usage-above-6m3.yml)
